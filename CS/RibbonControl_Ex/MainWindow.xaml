@@ -1,0 +1,287 @@
+﻿<dxr:DXRibbonWindow x:Class="RibbonControl_Ex.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="360" Width="605"
+        xmlns:local="clr-namespace:RibbonControl_Ex"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        dxc:ThemeManager.ThemeName="Azure"
+        Icon="pack://application:,,,/Images/applicationIcon-16x16.png"
+        >
+    <dxb:BarManager Name="barManager">
+        <dxb:BarManager.Items>
+            <dxb:BarButtonItem Name="bNew" Content="New" 
+                               Glyph="pack://application:,,,/Images/new-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/new-32x32.png"  
+                               Description="New blank document."
+                               Hint="New blank document."
+                               />
+            <dxb:BarButtonItem Name="bOpen" Content="Open" 
+                               Glyph="pack://application:,,,/Images/open-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/open-32x32.png" 
+                               Description="Open a file."
+                               Hint="Open a file."/>
+            <dxb:BarButtonItem Name="bClose" Content="Close" 
+                               Glyph="pack://application:,,,/Images/close-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/close-32x32.png"
+                               Hint="Close the current document"/>
+            <dxb:BarButtonItem Name="bPrint" Content="Print" 
+                               Glyph="pack://application:,,,/Images/print-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/print-32x32.png"  
+                               Description="Prints the document."
+                               Hint="Prints the document."/>
+            <dxb:BarButtonItem Name="bSave" Content="Save" 
+                               Glyph="pack://application:,,,/Images/save-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/save-32x32.png"  
+                               Description="Saves the document."
+                               Hint="Saves the document."/>
+            <dxb:BarButtonItem Name="bSaveAs" Content="Save As..." 
+                               Glyph="pack://application:,,,/Images/save-as-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/save-as-32x32.png" 
+                               Description="Save Document As..."
+                               Hint="Save Document As..."/>
+            <dxb:BarSplitButtonItem Name="sbSave" Content="Save" 
+                                    Glyph="pack://application:,,,/Images/save-16x16.png" 
+                                    LargeGlyph="pack://application:,,,/Images/save-32x32.png">
+                <dxb:BarSplitButtonItem.PopupControl >
+                    <dxb:PopupMenuInfo>
+                        <dxb:PopupMenuInfo.ItemLinks>
+                            <dxb:BarItemLink BarItemName="bSave" />
+                            <dxb:BarItemLink BarItemName="bSaveAs" />
+                        </dxb:PopupMenuInfo.ItemLinks>
+                    </dxb:PopupMenuInfo>
+                </dxb:BarSplitButtonItem.PopupControl>
+            </dxb:BarSplitButtonItem>
+            
+            <dxb:BarButtonItem Name="bCut" Content="Cut" 
+                               Glyph="pack://application:,,,/Images/cut-16x16.png" />
+            <dxb:BarButtonItem Name="bCopy" Content="Copy" 
+                               Glyph="pack://application:,,,/Images/copy-16x16.png" />
+            <dxb:BarButtonItem Name="bPaste" Content="Paste" 
+                               Glyph="pack://application:,,,/Images/paste-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/paste-32x32.png" />
+            <dxb:BarButtonItem Name="bClear" Content="Clear" 
+                               Glyph="pack://application:,,,/Images/delete-16x16.png" />
+
+            <dxb:BarButtonItem Name="bAbout" Content="About" 
+                               Glyph="pack://application:,,,/Images/info-16x16.png" 
+                               LargeGlyph="pack://application:,,,/Images/info-32x32.png" 
+                               ItemClick="bAbout_ItemClick" />
+
+            <dxb:BarCheckItem Name="bBold" Content="Bold" 
+                              Glyph="pack://application:,,,/Images/bold-16x16.png" />
+            <dxb:BarCheckItem Name="bItalic" Content="Italic" 
+                              Glyph="pack://application:,,,/Images/italic-16x16.png" />
+            <dxb:BarCheckItem Name="bUnderline" Content="Underline" 
+                              Glyph="pack://application:,,,/Images/underline-16x16.png" />
+
+            <!--region #BarButtonGroup-->
+            <dxr:BarButtonGroup Name="bgFontShape">
+                <dxr:BarButtonGroup.ItemLinks>
+                    <dxb:BarItemLink BarItemName="bBold"/>
+                    <dxb:BarItemLink BarItemName="bItalic"/>
+                    <dxb:BarItemLink BarItemName="bUnderline"/>
+                </dxr:BarButtonGroup.ItemLinks>
+            </dxr:BarButtonGroup>
+            <!--endregion #BarButtonGroup-->
+            
+            <dxb:BarEditItem Name="eFontSize" EditWidth="60" 
+                             Content="Font Size:" 
+                             EditValueChanged="eFontSize_EditValueChanged">
+                <dxb:BarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings PopupMaxHeight="250" IsTextEditable="False"/>
+                </dxb:BarEditItem.EditSettings>
+            </dxb:BarEditItem>
+            
+            <!--region #RibbonGalleryBarItem-->
+            <dxr:RibbonGalleryBarItem Name="gFont">
+                <dxr:RibbonGalleryBarItem.Links>
+                    <dxb:BarItemLink BarItemName="eFontSize" />
+                </dxr:RibbonGalleryBarItem.Links>
+                <dxr:RibbonGalleryBarItem.Gallery>
+                    <dxb:Gallery MinColCount="1" ColCount="5" 
+                                 ItemCheckMode="Single" 
+                                 IsGroupCaptionVisible="False" 
+                                 IsItemCaptionVisible="False"
+                                 IsItemDescriptionVisible="False" 
+                                 ItemChecked="FontFamilyGallery_ItemChecked" 
+                                 ItemCaptionVerticalAlignment="Center">
+                        <dxb:Gallery.Groups>
+                            <dxb:GalleryItemGroup Name="FontFamilyGalleryGroup" />
+                        </dxb:Gallery.Groups>
+                    </dxb:Gallery>
+                </dxr:RibbonGalleryBarItem.Gallery>
+                
+                <dxr:RibbonGalleryBarItem.DropDownGallery>
+                    <dxb:Gallery MinColCount="1" ColCount="1" 
+                                 RowCount="10" 
+                                 ItemCheckMode="Single" 
+                                 IsGroupCaptionVisible="False"
+                                 IsItemGlyphVisible="True" 
+                                 IsItemDescriptionVisible="False" 
+                                 ItemContentHorizontalAlignment="Stretch"
+                                 ItemContentVerticalAlignment="Center" 
+                                 ItemChecked="FontFamilyGallery_ItemChecked"
+                                 SizeMode="Vertical">
+                        <dxb:Gallery.Groups>
+                            <dxb:GalleryItemGroup Name="FontFamilyDropDownGalleryGroup" />
+                        </dxb:Gallery.Groups>
+                    </dxb:Gallery>
+                </dxr:RibbonGalleryBarItem.DropDownGallery>
+            </dxr:RibbonGalleryBarItem>
+            <!--endregion #RibbonGalleryBarItem-->
+            
+            <dxb:BarEditItem Name="eRibbonStyle" Content="Ribbon Style:" 
+                             EditWidth="100" 
+                             ClosePopupOnChangingEditValue="True" 
+                             EditValue="{Binding ElementName=RibbonControl, Path=RibbonStyle}">
+                <dxb:BarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings IsTextEditable="False" PopupMaxHeight="250">
+                        <dxe:ComboBoxEditSettings.Items>
+                            <dxr:RibbonStyle>Office2010</dxr:RibbonStyle>
+                            <dxr:RibbonStyle>Office2007</dxr:RibbonStyle>
+                        </dxe:ComboBoxEditSettings.Items>
+                    </dxe:ComboBoxEditSettings>
+                </dxb:BarEditItem.EditSettings>
+            </dxb:BarEditItem>
+
+            <dxb:BarStaticItem Name="bPosInfo" ItemMinWidth="150"/>
+            <dxb:BarStaticItem Name="bFileName" ItemMinWidth="150" AutoSizeMode="Fill" Content="Binding"/>
+        </dxb:BarManager.Items>
+        
+        <DockPanel>
+            <dxr:RibbonControl x:Name="RibbonControl" DockPanel.Dock="Top" 
+                               ApplicationButtonLargeIcon="pack://application:,,,/Images/ribbon-application-32x32.png" 
+                               ApplicationButtonText="File" 
+                               PageCategoryAlignment="Right"
+                               >
+                <!--region #AppMenu-->
+                <dxr:RibbonControl.ApplicationMenu>
+                    <dxr:ApplicationMenuInfo RightPaneWidth="280" ShowRightPane="True">
+                        <dxr:ApplicationMenuInfo.ItemLinks>
+                            <dxb:BarItemLink BarItemName="bNew"/>
+                            <dxb:BarItemLink BarItemName="bOpen"/>
+                            <dxb:BarItemLinkSeparator/>
+                            <dxb:BarItemLink BarItemName="sbSave"/>
+                            <dxb:BarItemLink BarItemName="bPrint"/>
+
+                            <dxb:BarItemLinkSeparator/>
+                            <dxb:BarItemLink BarItemName="bAbout"/>
+                        </dxr:ApplicationMenuInfo.ItemLinks>
+                        <dxr:ApplicationMenuInfo.RightPane>
+                            <Border Background="White" BorderThickness="1,0,0,0" BorderBrush="LightGray">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Border BorderThickness="0,0,0,1" BorderBrush="LightGray" Margin="7,5,5,0">
+                                        <Label FontWeight="Bold">Recent Documents:</Label>
+                                    </Border>
+                                    <ListBox Grid.Row="1" BorderThickness="0" Margin="2,0,0,0" >
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                                    <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                                                        <TextBlock Text="{Binding Number}"/>
+                                                    </Border>
+                                                    <TextBlock Text="{Binding FileName}" Margin="7,0,0,0"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                        <ListBox.Items>
+                                            <local:RecentItem  Number="1" FileName="Document4.rtf"/>
+                                            <local:RecentItem  Number="2" FileName="Document3.rtf"/>
+                                            <local:RecentItem  Number="3" FileName="Document2.rtf"/>
+                                            <local:RecentItem  Number="4" FileName="Document1.rtf"/>
+                                        </ListBox.Items>
+                                    </ListBox>
+                                </Grid>
+                            </Border>
+                        </dxr:ApplicationMenuInfo.RightPane>
+                        <dxr:ApplicationMenuInfo.BottomPane>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Click="OptionsButton_Click" Content="Options" Width="100" Margin="0,0,10,0" />
+
+                                <Button Click="ExitButton_Click" Content="Exit" Width="100" />
+                                
+                            </StackPanel>
+                        </dxr:ApplicationMenuInfo.BottomPane>
+                    </dxr:ApplicationMenuInfo>
+                </dxr:RibbonControl.ApplicationMenu>
+                <!--endregion #AppMenu-->
+                
+                <!--region #PageHeaderItemLinks-->
+                <dxr:RibbonControl.PageHeaderItemLinks>
+                    <dxb:BarItemLink BarItemName="eRibbonStyle"/>
+                    <dxb:BarItemLink BarItemName="bAbout"/>
+                </dxr:RibbonControl.PageHeaderItemLinks>
+                <!--endregion #PageHeaderItemLinks-->
+                
+                <!--region #ToolbarItemLinks-->
+                <dxr:RibbonControl.ToolbarItemLinks>
+                    <dxb:BarItemLink BarItemName="bOpen"/>
+                    <dxb:BarItemLink BarItemName="bSave"/>
+                </dxr:RibbonControl.ToolbarItemLinks>
+                <!--endregion #ToolbarItemLinks-->
+                
+                <!--region #DefaultPageCategory-->
+                <dxr:RibbonDefaultPageCategory>
+                    <dxr:RibbonPage Caption="Home">
+                        <dxr:RibbonPageGroup Name="pFile" Caption="File" 
+                                             CaptionButtonClick="groupFile_CaptionButtonClick">
+                            <dxb:BarItemLink BarItemName="bNew" RibbonStyle="Large"/>
+
+                            <dxb:BarItemLink BarItemName="bOpen" RibbonStyle="SmallWithText"/>
+                            <dxb:BarItemLink BarItemName="bClose" RibbonStyle="SmallWithText"/>
+                            <dxb:BarItemLink BarItemName="bPrint" RibbonStyle="SmallWithText"/>
+
+                            <dxb:BarItemLinkSeparator/>
+                            <dxb:BarItemLink BarItemName="sbSave" RibbonStyle="Large"/>
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Edit" CaptionButtonClick="groupEdit_CaptionButtonClick">
+                            <dxb:BarItemLink BarItemName="bPaste" RibbonStyle="Large"/>
+
+                            <dxb:BarItemLink BarItemName="bCut" RibbonStyle="SmallWithText"/>
+                            <dxb:BarItemLink BarItemName="bCopy" RibbonStyle="SmallWithText"/>
+                            <dxb:BarItemLink BarItemName="bClear" RibbonStyle="SmallWithText"/>
+                        </dxr:RibbonPageGroup>
+                        
+                        <dxr:RibbonPageGroup Caption="Format" ShowCaptionButton="False">
+                            <dxb:BarItemLink BarItemName="bgFontShape" RibbonStyle="SmallWithoutText"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+                <!--endregion #DefaultPageCategory-->
+                
+                <!--region #CustomPageCategory-->
+                <dxr:RibbonPageCategory x:Name="categorySelection" 
+                                        Caption="Selection" 
+                                        Color="Yellow" 
+                                        IsVisible="False">
+                    <dxr:RibbonPage Caption="Gallery Page">
+                        <dxr:RibbonPageGroup Caption="Font" ShowCaptionButton="False">
+                            <dxb:BarItemLink BarItemName="gFont"/>
+                            <dxb:BarItemLink BarItemName="eFontSize" RibbonStyle="SmallWithoutText"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonPageCategory>
+                <!--endregion #CustomPageCategory-->
+            </dxr:RibbonControl>
+
+            <!--region #RibbonStatusBarControl-->
+            <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom" Name="StatusBar" IsSizeGripVisible="True">
+                <dxr:RibbonStatusBarControl.RightItemLinks>
+                    <dxb:BarItemLink BarItemName="bFileName"/>
+                </dxr:RibbonStatusBarControl.RightItemLinks>
+                <dxr:RibbonStatusBarControl.LeftItemLinks>
+                     <dxb:BarItemLink BarItemName="bPosInfo"/>
+                </dxr:RibbonStatusBarControl.LeftItemLinks>
+            </dxr:RibbonStatusBarControl>
+            <!--endregion #RibbonStatusBarControl-->
+            <RichTextBox x:Name="textEditor" DockPanel.Dock="Top" BorderThickness="0" SelectionChanged="textEditor_SelectionChanged"/>
+        </DockPanel>
+    </dxb:BarManager>
+</dxr:DXRibbonWindow>
