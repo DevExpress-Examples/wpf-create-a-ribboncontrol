@@ -17,12 +17,13 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows.Threading;
 using DevExpress.Xpf.Ribbon;
+using DevExpress.Xpf.Core;
 
 namespace RibbonControl_Ex {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : DXRibbonWindow {
+    public partial class MainWindow : ThemedWindow {
         
         public MainWindow() {
             InitializeComponent();
