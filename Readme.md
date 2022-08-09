@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Create a RibbonControl
 
-This example shows how to create RibbonControl in XAML.  
+This example shows how to create a RibbonControl in XAML.  
 
 ![image](https://user-images.githubusercontent.com/12169834/183644462-e4c5f8ff-fa82-4e5c-bf9e-bf31aebc61da.png)
 
