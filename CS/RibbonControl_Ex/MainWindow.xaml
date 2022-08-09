@@ -1,4 +1,4 @@
-﻿<dxr:DXRibbonWindow x:Class="RibbonControl_Ex.MainWindow"
+<dxr:DXRibbonWindow x:Class="RibbonControl_Ex.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="360" Width="605"
