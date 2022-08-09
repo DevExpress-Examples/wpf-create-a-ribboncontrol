@@ -3,27 +3,20 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E2201)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
+# Create a RibbonControl
+
+This example shows how to create RibbonControl in XAML.  
+
+![image](https://user-images.githubusercontent.com/12169834/183644462-e4c5f8ff-fa82-4e5c-bf9e-bf31aebc61da.png)
+
 <!-- default file list -->
-*Files to look at*:
+## Files to Look At
 
 * **[MainWindow.xaml](./CS/RibbonControl_Ex/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/RibbonControl_Ex/MainWindow.xaml))**
 * [MainWindow.xaml.cs](./CS/RibbonControl_Ex/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/RibbonControl_Ex/MainWindow.xaml.vb))
 <!-- default file list end -->
-# How to create a RibbonControl
 
+## Documentation
 
-<p>This example shows how to create RibbonControl in XAML.<br><br>Below are links to documentation articles describing how specific parts of this example were implemented
-
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8178.aspx">How to create a RibbonControl</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8179.aspx">How to define a default ribbon category with commands</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8180.aspx">How to define a custom ribbon category</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8182.aspx">How to create an Application Menu</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8185.aspx">How to: Add Items to the Quick Access Toolbar</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8186.aspx">How to: Add Commands to the Page Header Region</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8183.aspx">How to create a BarButtonGroup</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8187.aspx">How to define an in-ribbon gallery</a>;
-* <a href="https://documentation.devexpress.com/WPF/CustomDocument8181.aspx">How to define a RibbonStatusBar</a>.</p>
-
-<br/>
-
-
+* [Populate Ribbon](https://docs.devexpress.com/WPF/7983/controls-and-libraries/ribbon-bars-and-menu/ribbon/populating-ribbon)
+* [Ribbon Control Examples](https://docs.devexpress.com/WPF/8177/controls-and-libraries/ribbon-bars-and-menu/ribbon/examples)
