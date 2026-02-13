@@ -22,7 +22,7 @@ This example creates a WPF RibbonControl in XAML.
 * [Populate Ribbon](https://docs.devexpress.com/WPF/7983/controls-and-libraries/ribbon-bars-and-menu/ribbon/populating-ribbon)
 * [Ribbon Control Examples](https://docs.devexpress.com/WPF/8177/controls-and-libraries/ribbon-bars-and-menu/ribbon/examples)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-create-a-ribboncontrol&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-create-a-ribboncontrol&~~~was_helpful=no)
 
