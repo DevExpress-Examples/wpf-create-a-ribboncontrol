@@ -1,3 +1,8 @@
+Imports System
+Imports System.Collections.Generic
+Imports System.Configuration
+Imports System.Data
+Imports System.Linq
 Imports System.Windows
 
 Namespace RibbonControl_Ex
