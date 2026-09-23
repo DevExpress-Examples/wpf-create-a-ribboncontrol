@@ -1,9 +1,16 @@
 Imports System
+Imports System.Collections.Generic
+Imports System.Linq
+Imports System.Text
 Imports System.Windows
 Imports System.Windows.Controls
+Imports System.Windows.Data
 Imports System.Windows.Documents
+Imports System.Windows.Input
 Imports System.Windows.Media
 Imports System.Windows.Media.Imaging
+Imports System.Windows.Navigation
+Imports System.Windows.Shapes
 Imports DevExpress.Xpf.Bars
 Imports DevExpress.Xpf.Editors.Settings
 Imports System.Collections.ObjectModel
@@ -29,9 +36,9 @@ Namespace RibbonControl_Ex
 
         Private Sub InitializeFontFamilyGallery()
             For Each fontFamily As FontFamily In(New DecimatedFontFamilies()).Items
-                Dim src As ImageSource = CreateImage(fontFamily)
-                FontFamilyGalleryGroup.Items.Add(CreateItem(fontFamily, src))
-                FontFamilyDropDownGalleryGroup.Items.Add(CreateItem(fontFamily, src))
+                Dim src As ImageSource = Me.CreateImage(fontFamily)
+                FontFamilyGalleryGroup.Items.Add(Me.CreateItem(fontFamily, src))
+                FontFamilyDropDownGalleryGroup.Items.Add(Me.CreateItem(fontFamily, src))
             Next
         End Sub
 
@@ -47,7 +54,7 @@ Namespace RibbonControl_Ex
             Dim v As DrawingVisual = New DrawingVisual()
             Dim c As DrawingContext = v.RenderOpen()
             c.DrawRectangle(Brushes.White, Nothing, New Rect(0, 0, DimensionSize, DimensionSize))
-            If fmtText Is Nothing Then fmtText = createFormattedText(fontFamily)
+            If fmtText Is Nothing Then fmtText = Me.createFormattedText(fontFamily)
             fmtText.SetFontFamily(fontFamily)
             fmtText.TextAlignment = TextAlignment.Center
             Dim verticalOffset As Double =(DimensionSize - fmtText.Baseline) / 2R
@@ -108,7 +115,7 @@ Namespace RibbonControl_Ex
             Dim line As Integer = 0
             textEditor.CaretPosition.GetLineStartPosition(-100000, line)
             Dim col As Integer = textEditor.CaretPosition.GetOffsetToPosition(textEditor.CaretPosition.GetLineStartPosition(0))
-            bPosInfo.Content = "Line: " & (-line).ToString() & "  Position: " & (-col).ToString()
+            bPosInfo.Content = "Line: " & (-line).ToString() & "  Position: " + (-col).ToString()
         End Sub
 
         Private Sub FontFamilyGallery_ItemChecked(ByVal sender As Object, ByVal e As GalleryItemEventArgs)
@@ -128,11 +135,11 @@ Namespace RibbonControl_Ex
         End Sub
 
         Private Sub OptionsButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-            Call TryCast(RibbonControl.ApplicationMenu, ApplicationMenu).ClosePopup()
+            TryCast(RibbonControl.ApplicationMenu, ApplicationMenu).ClosePopup()
         End Sub
 
         Private Sub ExitButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-            Call TryCast(RibbonControl.ApplicationMenu, ApplicationMenu).ClosePopup()
+            TryCast(RibbonControl.ApplicationMenu, ApplicationMenu).ClosePopup()
         End Sub
 
         Private Sub groupEdit_CaptionButtonClick(ByVal sender As Object, ByVal e As EventArgs)
@@ -180,7 +187,7 @@ Namespace RibbonControl_Ex
             Get
                 Dim res As ObservableCollection(Of FontFamily) = New ObservableCollection(Of FontFamily)()
                 For i As Integer = 0 To ItemsCore.Count - 1
-                    If i Mod DecimationFactor = 0 Then res.Add(ItemsCore(i))
+                    If i Mod DecimationFactor Is 0 Then res.Add(FontFamilies.ItemsCore(i))
                 Next
 
                 Return res
@@ -197,7 +204,7 @@ Namespace RibbonControl_Ex
                 If itemsField Is Nothing Then
                     itemsField = New ObservableCollection(Of FontFamily)()
                     For Each fam As FontFamily In Fonts.SystemFontFamilies
-                        If Not IsValidFamily(fam) Then Continue For
+                        If Not FontFamilies.IsValidFamily(fam) Then Continue For
                         itemsField.Add(fam)
                     Next
                 End If
